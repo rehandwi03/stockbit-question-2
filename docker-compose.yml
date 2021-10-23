@@ -1,0 +1,21 @@
+version: '3.1'
+services:
+  db:
+    container_name: mariadb
+    image: mariadb
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: rehan123
+      MYSQL_USER: rehan
+      MYSQL_PASSWORD: rehan
+      MYSQL_DATABASE: stockbit
+
+  apps:
+    container_name: stockbit-service
+    build:
+      context: .
+    restart: always
+    ports:
+      - 10000:10000

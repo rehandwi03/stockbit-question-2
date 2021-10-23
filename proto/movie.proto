@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+option go_package = "/movie";
+
+service Movie {
+  rpc Fetch(MovieRequest) returns (MovieResponse) {}
+  rpc GetByID(MovieDetailRequest) returns (MovieDetailResponse) {}
+}
+
+message MovieDetailResponse {
+  string Title = 1;
+  string Year = 2;
+  string Rated = 3;
+  string Released = 4;
+  string Runtime = 5;
+  string Genre = 6;
+  string Director = 7;
+  string Writer = 8;
+  string Actors = 9;
+  string Plot = 10;
+  string Language = 11;
+  string Country = 12;
+  string Awards = 13;
+  string Poster = 14;
+  repeated Rating Ratings = 15;
+  string Metasource = 16;
+  string Type = 17;
+  string DVD = 18;
+  string BoxOffice = 19;
+  string Production = 20;
+  string Website = 21;
+  string Response = 22;
+}
+
+message MovieDetailRequest {
+  string id = 1;
+}
+
+message MovieRequest {
+  string searchworld = 1;
+  string pagination = 2;
+}
+
+message MovieResponse {
+  repeated MovieModel movies = 1;
+  string message = 2;
+}
+
+message MovieModel {
+  string ImdbID = 1;
+  string Title = 2;
+  string Year = 3;
+  string Type = 4;
+  string Poster = 5;
+}
+
+message Rating {
+  string Source = 1;
+  string Value = 2;
+}
+
+
