@@ -35,7 +35,7 @@ func GrpcInterceptor(
 	done := make(chan bool, 1)
 	go func(done chan bool) {
 		_, err := logRepository.Save(
-			context.Background(), model.Log{
+			ctx, model.Log{
 				ClientIP: clientIP,
 				ServerIP: serverIP[0],
 				Method:   "",
@@ -64,7 +64,7 @@ func GrpcInterceptor(
 	return h, err
 }
 
-func Log(next http.Handler) http.Handler {
+func HttpLog(next http.Handler) http.Handler {
 	return http.HandlerFunc(
 		func(w http.ResponseWriter, r *http.Request) {
 			done := make(chan bool, 1)

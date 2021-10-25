@@ -64,8 +64,8 @@ func main() {
 
 	// init router
 	gMux := gorilla_mux.NewRouter()
-	// use middleware Log
-	gMux.Use(middleware.Log)
+	// use middleware HttpLog
+	gMux.Use(middleware.HttpLog)
 
 	// init movie repo, svc, and http handler
 	repo := repository.NewMovieRepository()
