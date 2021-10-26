@@ -10,8 +10,9 @@ RUN go mod download
 
 COPY . .
 
-RUN CGO_ENABLED=0 go build -ldflags="-s -w" -a && upx -q9 stockbit-service
+#RUN CGO_ENABLED=0 go build -ldflags="-s -w" -a && upx -q9 stockbit-service
 
+RUN CGO_ENABLED=0 go build -o stockbit-service
 
 FROM alpine:3.12
 
