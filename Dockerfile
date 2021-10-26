@@ -20,7 +20,7 @@ RUN apk add --update --no-cache tzdata ca-certificates
 
 WORKDIR /app
 
-COPY --from=0 /src/product-service .
+COPY --from=0 /src/stockbit-service .
 COPY .env.example .env
 
 EXPOSE 10000
